@@ -6,14 +6,12 @@ headers = requests.utils.default_headers()
 headers.update({
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
 })
-global news
 news=[]
 def crawer_news():
     response_get=requests.get(base_url,headers=headers)
     soup= BeautifulSoup(response_get.text,'html.parser')
     news_tag=soup.find('ul',attrs={'class':'Z(0) Pos(r) W(100%) H(312px) Fz(16px)'})
     news_tag=news_tag.find_all('a')
-    global news
     index=1
     for new in news_tag:
         if new.text=='':
