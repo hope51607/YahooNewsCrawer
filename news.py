@@ -13,7 +13,7 @@ def crawer_news():
     soup= BeautifulSoup(response_get.text,'html.parser')
     news_tag=soup.find('ul',attrs={'class':'Z(0) Pos(r) W(100%) H(312px) Fz(16px)'})
     news_tag=news_tag.find_all('a')
-    # global news
+    global news
     index=1
     for new in news_tag:
         if new.text=='':
